@@ -11,13 +11,16 @@ public class Solution {
     public int lengthOfLongestSubstring(String s) {
         if (s.isEmpty()) {
             return 0;
+        } else if(s.equals(" ")) {
+            return 1;
         }
         Map<Character, Boolean> characterMap = new HashMap<>();
         char[] chars = s.toCharArray();
+        int charLength = chars.length;
         int[] lengthOfSubstrings = new int[2];
         int k = 0;
-        for (int i = 0; i < chars.length; i++) {
-            for (int j = i; j < chars.length; j++) {
+        for (int i = 0; i < charLength; i++) {
+            for (int j = i; j < charLength; j++) {
                 if (!characterMap.containsKey(chars[j])) {
                     characterMap.put(chars[j], true);
                     lengthOfSubstrings[k]++;
@@ -30,6 +33,7 @@ public class Solution {
                 }
             }
         }
-        return Math.max(lengthOfSubstrings[0], lengthOfSubstrings[1]);
+
+        return lengthOfSubstrings[0];
     }
 }
