@@ -22,11 +22,9 @@ public class Solution {
     private String commonPrefixOfTwoStrings(String string1, String string2) {
         int shorterLength = Math.min(string1.length(), string2.length());
         StringBuilder stringBuilder = new StringBuilder(shorterLength);
-        char[] chars1 = string1.toCharArray();
-        char[] chars2 = string2.toCharArray();
         for (int i = 0; i < shorterLength; i++) {
-            if (chars1[i] == chars2[i]) {
-                stringBuilder.append(chars1[i]);
+            if (string1.charAt(i) == string2.charAt(i)) {
+                stringBuilder.append(string1.charAt(i));
             } else {
                 break;
             }
